@@ -125,6 +125,20 @@ namespace Grafics
 
         #region metodes
 
+        public override bool Equals(object? obj)
+        {
+            bool iguals;
+            
+            if(obj==null) iguals = false;
+            else if(obj is not Cercle) iguals = false;
+            else
+            {
+                Cercle other = (Cercle)obj;
+                //iguals = this.radi==other.radi && this.X == other.X && this.Y == other.Y;
+                iguals = this.radi == other.radi && this.Centre.Equals(other.Centre);
+            }
+        }
+
         /// <summary>
         /// Converteix un cercle en un string
         /// </summary>

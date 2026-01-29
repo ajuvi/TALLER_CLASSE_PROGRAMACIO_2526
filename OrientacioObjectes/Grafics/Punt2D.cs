@@ -142,14 +142,14 @@ namespace Grafics
         /// <returns>Retorna cert si els dos punts són iguals, altrament retorna fals.</returns>
         public override bool Equals(object obj)
         {
-            bool iguals = false;
+            bool iguals;
 
             if (obj == null) iguals = false;
             else if (obj is not Punt2D) iguals = false;
             else
             {
                 Punt2D other = (Punt2D)obj;
-                iguals = this.X == other.X && this.Y == other.Y && this.Gruix == other.Gruix;
+                iguals = this.X == other.X && this.Y == other.Y;
             }
 
             return iguals;
