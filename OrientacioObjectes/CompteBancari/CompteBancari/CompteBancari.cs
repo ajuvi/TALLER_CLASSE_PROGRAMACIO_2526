@@ -6,14 +6,15 @@ namespace DemoCompteBancari
 {
     public class CompteBancari
     {
-        // CAMPS
+        #region CAMPS
         private string iban;
         private string titular;
         private double saldo;
         private bool bloquejat;
         private static double tipusInteresAnual = 0.03;
+        #endregion
 
-        // CONSTRUCTORS
+        #region CONSTRUCTORS
         public CompteBancari(string iban, string titular, double saldoInicial, bool bloquejat)
         {
             this.iban = iban;
@@ -28,7 +29,9 @@ namespace DemoCompteBancari
         public CompteBancari(string iban, string titular)
             : this(iban, titular, 0, false) { }
 
-        // PROPIETATS
+        #endregion
+
+        #region PROPIETATS
         public static double TipusInteresAnual
         {
             get { return CompteBancari.tipusInteresAnual; }
@@ -50,8 +53,9 @@ namespace DemoCompteBancari
         {
             get { return this.saldo; }
         }
+        #endregion
 
-        // MÈTODES D'INSTÀNCIA
+        #region MÈTODES D'INSTÀNCIA (D'OBJECTE)
 
         public override bool Equals(object? obj)
         {
@@ -71,7 +75,7 @@ namespace DemoCompteBancari
 
         public override string ToString()
         {
-            string str = $"TITULAR:{titular} SALDO:{Saldo}";
+            string str = $"IBAN:{iban} TITULAR:{titular} SALDO:{Saldo}";
 
             if (bloquejat) str += " (BLOQUEJAT)";
             else str += " (ACTIU)";
@@ -105,7 +109,9 @@ namespace DemoCompteBancari
             return saldo >= quantitat;
         }
 
-        // MÈTODES ESTATICS
+        #endregion
+
+        #region MÈTODES ESTATICS (DE CLASSE)
         public static void Transaccio(
             CompteBancari origen, 
             CompteBancari desti, 
@@ -123,7 +129,9 @@ namespace DemoCompteBancari
 
             origen.saldo -= quantitat;
             desti.saldo += quantitat;
-
         }
+        #endregion
     }
 }
+
+
