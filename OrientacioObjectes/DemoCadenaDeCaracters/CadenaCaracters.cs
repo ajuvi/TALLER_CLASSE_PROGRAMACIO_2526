@@ -118,6 +118,41 @@ namespace DemoCadenaDeCaracters
 
         }
 
+        public override bool Equals(object? obj)
+        {
+            //return base.Equals(obj);
+
+            ////comparar referències
+            //return ReferenceEquals(this, obj);
+
+            bool iguals;
+            if(obj is null)
+                iguals = false;
+            else if(obj is not CadenaCaracters)
+                iguals = false;
+            else
+            {
+                CadenaCaracters other = (CadenaCaracters)obj;
+                //if(this.Mida != other.Mida) 
+                if (this.lletres.Length!=other.lletres.Length) 
+                    iguals = false;
+                else
+                {
+                    int index = 0;
+                    iguals = true;
+                    while(iguals && index < this.Mida)
+                    {
+                        //iguals = this.lletres[index] == other.lletres[index];
+                        iguals = this[index] == other[index];
+                        index++;
+                    }
+
+                }
+            }
+
+            return iguals;
+        }
+
         private void ValidarIndex(int index)
         {
             if (index < 0 || index >= lletres.Length)
