@@ -67,7 +67,8 @@ namespace DemoCompteBancari
             else
             {
                 CompteBancari other = (CompteBancari)obj;
-                iguals = this.iban == other.iban && this.titular == other.titular;  
+                //iguals = this.iban == other.iban && this.titular == other.titular;
+                iguals = this.iban.Equals(other.iban) && this.titular.Equals(other.titular);
             }
 
             return iguals;

@@ -3,12 +3,12 @@
   <Class Name="Grafics.Cercle">
     <Position X="5.75" Y="2.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>ABAEAAAQBAAAAAAEAAAAAAAAAAAAAAAAAAAAAQAAYAA=</HashCode>
+      <HashCode>ABAEAAAQBAAAAAAEgAAAAAAAAAAAAAAAAAAAAQAAYAA=</HashCode>
       <FileName>Cercle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Grafics.Program">
-    <Position X="3.5" Y="2.25" Width="2" />
+    <Position X="1.25" Y="2.25" Width="2" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAABBAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -19,6 +19,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAA=</HashCode>
       <FileName>Rectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grafics.Punt2D">
+    <Position X="3.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAAAAAAAAAE4AAAIIAQAgAIEAAAAADgEAAEYAA=</HashCode>
+      <FileName>Punt2D.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
