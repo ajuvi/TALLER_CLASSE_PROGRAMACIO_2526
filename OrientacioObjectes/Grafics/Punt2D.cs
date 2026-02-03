@@ -11,20 +11,16 @@ namespace Grafics
         #region Atributs
         private double x;
         private double y;
-        private double gruix;
         #endregion
 
         #region Constructors
-        //public Punt2D(double x, double y, double gruix)
+        //public Punt2D(double x, double y)
         //{
         //    this.x = x;
         //    this.y = y;
-        //    this.Gruix = gruix;
         //}
 
-        //public Punt2D(double x, double y) : this(x, y, 0) { }
-
-        //public Punt2D() : this(0, 0, 0) { }
+        //public Punt2D() : this(0, 0) { }
 
         /// <summary>
         /// Constructor amb valors en els paràmetres.
@@ -32,30 +28,15 @@ namespace Grafics
         /// <param name="x">Valor de x</param>
         /// <param name="y">Valor de y</param>
         /// <param name="gruix">Valor del gruix</param>
-        public Punt2D(double x = 0, double y = 0, double gruix = 0)
+        public Punt2D(double x = 0, double y = 0)
         {
             this.X = x;
             this.Y = y;
-            this.Gruix = gruix;
         }
 
         #endregion
 
         #region Propietats
-
-        /// <summary>
-        /// Propietat associada a l'atribut gruix.
-        /// Valida si el gruix és vàlid.
-        /// </summary>
-        public double Gruix
-        {
-            get { return gruix; }
-            set
-            {
-                ValidarGruix(value);
-                this.gruix = value;
-            }
-        }
 
         /// <summary>
         /// Propietat associada a l'atribut x
@@ -121,7 +102,7 @@ namespace Grafics
         /// <returns>La informació del punt en format text</returns>
         public override string ToString()
         {
-            return $"[{this.x}{SEPARADOR}{this.y}] gruix={this.gruix}";
+            return $"[{this.x}{SEPARADOR}{this.y}]";
         }
 
         /// <summary>
@@ -196,7 +177,7 @@ namespace Grafics
                 throw new ArgumentNullException("No s'admeten valors null");
 
             Punt2D nouPunt;
-            nouPunt = new Punt2D(a.X + b.X, a.Y + b.Y, a.Gruix + b.Gruix);
+            nouPunt = new Punt2D(a.X + b.X, a.Y + b.Y);
             return nouPunt;
         }
 
@@ -217,7 +198,7 @@ namespace Grafics
         /// </summary>
         public static Punt2D operator ++(Punt2D a)
         {
-            return a + new Punt2D(1, 1, 1);
+            return a + new Punt2D(1, 1);
         }
 
         /// <summary>
@@ -230,7 +211,7 @@ namespace Grafics
         public static Punt2D operator +(Punt2D a, double increment)
         {
             Punt2D nouPunt;
-            nouPunt = new Punt2D(a.X + increment, a.Y + increment, a.Gruix + increment);
+            nouPunt = new Punt2D(a.X + increment, a.Y + increment);
             return nouPunt;
         }
 
@@ -253,7 +234,7 @@ namespace Grafics
         /// <param name="valor">Valor a convertir</param>
         public static implicit operator Punt2D(double valor)
         {
-            return new Punt2D(valor, valor, valor);
+            return new Punt2D(valor, valor);
         }
 
         ///// <summary>
@@ -288,8 +269,10 @@ namespace Grafics
         public static explicit operator Punt2D(string text)
         {
             string[] parts = text.Trim('[').Trim(']').Split(SEPARADOR);
+            if (parts.Length != 2)
+                throw new Exception("Format no vàlid");
+
             Punt2D nouPunt = new Punt2D(Convert.ToDouble(parts[0]), Convert.ToDouble(parts[1])); ;
-            if (parts.Length > 2) nouPunt.Gruix = Convert.ToDouble(parts[2]);
             return nouPunt;
         }
 

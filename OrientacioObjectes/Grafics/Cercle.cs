@@ -137,6 +137,8 @@ namespace Grafics
                 //iguals = this.radi==other.radi && this.X == other.X && this.Y == other.Y;
                 iguals = this.radi == other.radi && this.Centre.Equals(other.Centre);
             }
+
+            return iguals;
         }
 
         /// <summary>
