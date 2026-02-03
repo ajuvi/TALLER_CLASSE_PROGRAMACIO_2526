@@ -14,13 +14,13 @@ namespace Grafics
         #endregion
 
         #region Constructors
-        //public Punt2D(double x, double y)
-        //{
-        //    this.x = x;
-        //    this.y = y;
-        //}
+        public Punt2D(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
 
-        //public Punt2D() : this(0, 0) { }
+        public Punt2D() : this(0, 0) { }
 
         /// <summary>
         /// Constructor amb valors en els paràmetres.
@@ -28,11 +28,11 @@ namespace Grafics
         /// <param name="x">Valor de x</param>
         /// <param name="y">Valor de y</param>
         /// <param name="gruix">Valor del gruix</param>
-        public Punt2D(double x = 0, double y = 0)
-        {
-            this.X = x;
-            this.Y = y;
-        }
+        //public Punt2D(double x = 0, double y = 0)
+        //{
+        //    this.X = x;
+        //    this.Y = y;
+        //}
 
         #endregion
 
@@ -45,11 +45,11 @@ namespace Grafics
         {
             get
             {
-                return x;
+                return this.x;
             }
             set
             {
-                x = value;
+                this.x = value;
             }
         }
 
@@ -103,17 +103,6 @@ namespace Grafics
         public override string ToString()
         {
             return $"[{this.x}{SEPARADOR}{this.y}]";
-        }
-
-        /// <summary>
-        /// Valida que els valor d'un punt sigui correcte.
-        /// </summary>
-        /// <param name="valor">Gruix del punt</param>
-        /// <exception cref="Exception">Genera una excepció si el gruix no és correcte.</exception>
-        private void ValidarGruix(double valor)
-        {
-            if (valor < 0)
-                throw new Exception("El gruix no pot ser negatiu");
         }
 
         /// <summary>
