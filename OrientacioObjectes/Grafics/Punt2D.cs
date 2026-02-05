@@ -159,13 +159,12 @@ namespace Grafics
 
         /// <summary>
         /// Crea un nou punt, resultat de sumar les coordenades dels dos punts passats per paràmetre.
-        /// El punt tindrà el mateix gruix que el primer dels punts.
         /// </summary>
         /// <param name="a">Primer punt</param>
         /// <param name="b">Segon punt</param>
-        /// <returns>Un nou punt suma dels dos punts i dels gruixos.</returns>
+        /// <returns>Un nou punt suma de les coordenades dels dos punts.</returns>
         /// <exception cref="ArgumentNullException">Els punts no poden ser null.</exception>
-        public static Punt2D Suma(Punt2D a, Punt2D b)
+        private static Punt2D Suma(Punt2D a, Punt2D b)
         {
             if (a == null || b == null)
                 throw new ArgumentNullException("No s'admeten valors null");
@@ -197,11 +196,10 @@ namespace Grafics
 
         /// <summary>
         /// Sum el valor de increment a la "x" i a la "y".
-        /// No incrementa el valor del gruix.
         /// </summary>
         /// <param name="a">Punt a incrementar</param>
         /// <param name="increment">Valor a incrementar</param>
-        /// <returns>Nou punt amb les coordenades i el gruix incrementats.</returns>
+        /// <returns>Nou punt amb les coordenades incrementades.</returns>
         public static Punt2D operator +(Punt2D a, double increment)
         {
             Punt2D nouPunt;
@@ -253,11 +251,26 @@ namespace Grafics
         }
 
         /// <summary>
+        /// Converteix de manera explicita un double[] a un punt.
+        /// <code>
+        ///     Punt2D p1 = (Punt2D)[1,1];
+        /// </code>
+        /// </summary>
+        /// <param name="p">Punt a convertir</param>
+        public static explicit operator Punt2D(double[] taula)
+        {
+            if (taula.Length != 2)
+                throw new Exception("Format no vàlid");
+
+            Punt2D nouPunt = new Punt2D(taula[0], taula[1]);
+            return nouPunt;
+        }
+
+        /// <summary>
         /// Converteix de manera explicita un text a un punt.
-        /// Es pot convertir un punt sense gruix.
+        /// <code>
         ///     Punt2D p1 = (Punt2D)"[1,1]";
-        /// Es pot convertir un punt amb gruix 2.
-        ///     Punt2D p1 = (Punt2D)"[1,1,2]";
+        /// </code>
         /// </summary>
         /// <param name="p">Punt a convertir</param>
         public static explicit operator Punt2D(string text)
@@ -266,7 +279,7 @@ namespace Grafics
             if (parts.Length != 2)
                 throw new Exception("Format no vàlid");
 
-            Punt2D nouPunt = new Punt2D(Convert.ToDouble(parts[0]), Convert.ToDouble(parts[1])); ;
+            Punt2D nouPunt = new Punt2D(Convert.ToDouble(parts[0]), Convert.ToDouble(parts[1]));
             return nouPunt;
         }
 
