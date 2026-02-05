@@ -220,32 +220,22 @@ namespace Grafics
         #region conversions
 
         /// <summary>
-        /// Converteix de manera implicita un double a punt.
+        /// Converteix de manera explicait un double a Punt2D.
         /// Punt2D p1 = 2.0;
         /// </summary>
         /// <param name="valor">Valor a convertir</param>
-        public static implicit operator Punt2D(double valor)
+        public static explicit operator Punt2D(double valor)
         {
             return new Punt2D(valor, valor);
         }
 
-        ///// <summary>
-        ///// Converteix de manera explicita un double a punt.
-        ///// Punt2D p1 = (Punt2D)2.0;
-        ///// </summary>
-        ///// <param name="valor">Valor a convertir</param>
-        //public static explicit operator Punt2D(double valor)
-        //{
-        //    return new Punt2D(valor, valor);
-        //}
-
         /// <summary>
-        /// Converteix de manera explicita un punt a la seva distancia a l'origen de coordenades.
+        /// Converteix de manera implicita un punt a la seva distancia a l'origen de coordenades.
         /// Punt2D p1 = new Punt2D(3,3);
-        /// double dist = (double)p1;
+        /// double dist = p1;
         /// </summary>
         /// <param name="p">Punt a convertir</param>
-        public static explicit operator double(Punt2D p)
+        public static implicit operator double(Punt2D p)
         {
             return Math.Sqrt(p.X * p.X + p.Y * p.Y);
         }
